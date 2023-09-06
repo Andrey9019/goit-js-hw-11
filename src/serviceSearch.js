@@ -16,16 +16,15 @@ async function serviceSearch(currentPage, searchQuery) {
 
   try {
     const response = await fetch(`${BASE_URL}?${params}`);
-    console.log(response);
     if (!response.ok) {
-      Notify.failure(
-        'На жаль, немає зображень, що відповідають вашому запиту. Будь ласка, спробуйте ще раз.'
-      );
+      throw new Error(`HTTP Error! Status: ${response.status}`);
     }
     const data = await response.json();
-
     return data;
   } catch (error) {
-    Notify.failure(error.message);
+    Notify.failure(
+      'На жаль, немає зображень, що відповідають вашому запиту. Будь ласка, спробуйте ще раз.'
+    );
+    throw error;
   }
 }

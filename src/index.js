@@ -45,17 +45,20 @@ async function handlerSubmit(evt) {
     if (data.totalHits > quantityImg) {
       elements.btnLoadMore.classList.replace('load-more-hidden', 'load-more');
     }
+    const galleryEl = document.querySelector('.gallery');
+    if (galleryEl) {
+      const { height: cardHeight } =
+        galleryEl.firstElementChild.getBoundingClientRect();
 
-    const { height: cardHeight } = document
-      .querySelector('.gallery')
-      .firstElementChild.getBoundingClientRect();
-
-    window.scrollBy({
-      top: cardHeight * 2,
-      behavior: 'smooth',
-    });
+      window.scrollBy({
+        top: cardHeight * 2,
+        behavior: 'smooth',
+      });
+    }
   } catch (error) {
-    Notify.failure(error.message);
+    Notify.failure(
+      'На жаль, немає зображень, що відповідають вашому запиту. Будь ласка, спробуйте ще раз.'
+    );
   } finally {
     gallery.refresh();
   }
