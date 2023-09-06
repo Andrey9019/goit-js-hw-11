@@ -5,10 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
 
+  <div class="container">
+    <div class="form-container">
+      <form class="search-form" id="search-form">
+        <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." />
+        <button type="submit" class="btn-search">Search</button>
+    </div>
+    </form>
+    <div class="gallery"></div>
+  </div>
+  <button type="button" class="load-more-hidden">Load more</button>
+  <script src="./index.js" type="module"></script>
 </body>
 
 </html>
