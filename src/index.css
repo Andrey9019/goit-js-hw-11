@@ -88,6 +88,10 @@ p {
   margin-bottom: 20px;
 }
 .photo-card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
   width: calc(25% - 20px);
   margin: 10px;
   padding: 10px;
@@ -121,7 +125,8 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+
+  flex-wrap: wrap;
 }
 
 .photo-card .info-item {
@@ -129,6 +134,9 @@ p {
   text-align: center;
   padding: 5px;
   font-size: 14px;
+
+  flex-basis: 45%;
+  margin: 5px;
 }
 
 .photo-card .info-item b {
